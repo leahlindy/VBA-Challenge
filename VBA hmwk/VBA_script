@@ -82,19 +82,7 @@ For i = 1 To lastRow
         ' --->Reset for next loop (next ticker name when i and i+1 aren't equal)
                 summary_table_row = summary_table_row + 1
                  
-        ' --->Conditional formating
-                Dim cond1 As FormatCondition
-                Dim cond2 As FormatCondition
-                Set color_change = ws.Range("j2", ws.Range("j2").End(xlDown))
-                Set cond1 = color_change.FormatConditions.Add(xlCellValue, xlGreater, 0)
-                    With cond1
-                        .Interior.Color = vbGreen
-                    End With
-                Set cond2 = color_change.FormatConditions.Add(xlCellValue, xlLess, 0)
-                    With cond2
-                        .Interior.Color = vbRed
-                    End With
-            
+        
             End If
             
             volume = 0
@@ -157,7 +145,19 @@ For i = 1 To lastRow
             
     Next j
     
+    ' --->Conditional formating
+                Dim cond1 As FormatCondition
+                Dim cond2 As FormatCondition
+                Set color_change = ws.Range("j2", ws.Range("j2").End(xlDown))
+                Set cond1 = color_change.FormatConditions.Add(xlCellValue, xlGreater, 0)
+                    With cond1
+                        .Interior.Color = vbGreen
+                    End With
+                Set cond2 = color_change.FormatConditions.Add(xlCellValue, xlLess, 0)
+                    With cond2
+                        .Interior.Color = vbRed
+                    End With
+            
 Next ws
 
 End Sub
-
